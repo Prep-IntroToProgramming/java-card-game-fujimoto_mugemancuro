@@ -53,7 +53,7 @@ public class Card {
     public final static int JACK  = 11;
     public final static int QUEEN = 12;
     public final static int KING  = 13;
-
+      
     // Here you need to define the inds of suits. They are
     // DIAMONDS, CLUBS, HEARTS, SPADES (in order of value, starting at 1)
     /*
