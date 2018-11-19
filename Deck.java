@@ -1,12 +1,6 @@
- 
+
 import java.util.*;
 
-/**
- * Write a description of class Deck here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class Deck
 {
     ArrayList<Card> cards = new ArrayList<Card>();      
@@ -16,5 +10,10 @@ public class Deck
                 cards.add(new Card(i,j));
             }
         }
+    }
+
+    public Deck draw() {
+        Deck retDeck = cards[numDrawn];
+        numDrawn++;
     }
 }
