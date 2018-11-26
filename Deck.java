@@ -15,4 +15,9 @@ public class Deck
     public Deck draw() {
         
     }
+    
+    public void shuffle(){
+    
+    }
+    
 }
