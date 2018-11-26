@@ -13,7 +13,6 @@ public class Deck
     }
 
     public Deck draw() {
-        Deck retDeck = cards[numDrawn];
-        numDrawn++;
+        
     }
 }
