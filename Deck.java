@@ -12,12 +12,14 @@ public class Deck
         }
     }
 
-    public Deck draw() {
+    public Card draw() {
+        Card cardDrawn = cards.get(0);
+        cards.remove(0);
+        return cardDrawn;
+    }
+
+    public void shuffle(){
         
     }
-    
-    public void shuffle(){
-    
-    }
-    
+
 }
