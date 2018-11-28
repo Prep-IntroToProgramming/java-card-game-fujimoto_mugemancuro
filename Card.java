@@ -1,4 +1,4 @@
- 
+
 /* 
  * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
  *
@@ -53,7 +53,7 @@ public class Card {
     public final static int JACK  = 11;
     public final static int QUEEN = 12;
     public final static int KING  = 13;
-      
+
     // Here you need to define the inds of suits. They are
     // DIAMONDS, CLUBS, HEARTS, SPADES (in order of value, starting at 1)
     /*
@@ -93,6 +93,55 @@ public class Card {
     // Here is the if-then-else approach for returning the string
     // as a rank
     public static String rankToString(int rank) {
+        if (rank == ACE) {
+            return "Ace";
+        } else if (rank == DEUCE) {
+            return "Deuce";
+        } else if (rank == THREE) {
+            return "Three";
+        } else if (rank == FOUR) {
+            return "Four";
+        } else if (rank == FIVE) {
+            return "Five";
+        } else if (rank == SIX) {
+            return "Six";
+        } else if (rank == SEVEN) {
+            return "Seven";
+        } else if (rank == EIGHT) {
+            return "Eight";
+        } else if (rank == NINE) {
+            return "Nine";
+        } else if (rank == TEN) {
+            return "Ten";
+        } else if (rank == JACK) {
+            return "Jack";
+        } else if (rank == QUEEN) {
+            return "Queen";
+        } else if (rank == KING) {
+            return "King";
+        } else {
+            //Handle an illegal argument.  There are generally two
+            //ways to handle invalid arguments, throwing an exception
+            //(see the section on Handling Exceptions) or return null
+            return null;
+        }
+    }
+
+    public String suitToString(){
+        if (suit == DIAMONDS){
+            return "Diamonds";
+        }else if (suit == CLUBS){
+            return "Clubs";
+        }else if (suit == HEARTS){
+            return "Hearts";
+        }else if (suit == SPADES){
+            return "Spades";
+        }else{
+            return null;
+        }
+    }
+
+    public String rankToString() {
         if (rank == ACE) {
             return "Ace";
         } else if (rank == DEUCE) {
@@ -190,6 +239,5 @@ return null;
  *
  *
  */
-
 
 
