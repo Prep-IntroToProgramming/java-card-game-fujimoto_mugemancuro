@@ -1,21 +1,20 @@
 import java.util.*;
 public class Player
 {
-    // instance variables - replace the example below with your own
+    int handVal;
     private String name;
-    private Deck hand;
     ArrayList<Card>playerCards = new ArrayList<Card>();
     public void showHand(){
-
+        System.out.print (playerCards);
     }
 
     public void addCard(Card c){
-        for (int i; i<1; i++){
-            playerCards.add(cards.get(i));
-        }
+        playerCards.add(c);
     }
 
     public int calcHand(){
+        
     }
-
 }
+
+
