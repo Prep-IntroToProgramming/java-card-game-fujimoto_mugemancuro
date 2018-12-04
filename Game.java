@@ -18,16 +18,23 @@ public class Game
        return true;
    }
    public void playTurn(){
+       newPlayer.showHand();
        Scanner startPlay = new Scanner(System.in);
        int storedVal = 0;
        while (storedVal != 1 && storedVal != 2){
-           System.out.print ("Would you like to hit? If yes, press 1. If no, press 2.");
+           System.out.println("Would you like to hit? If yes, press 1. If no, press 2.");
            if (!startPlay.hasNextInt()){
-               System.out.print ("That is not a valid value. Try again.");
+               System.out.println("That is not a valid value. Try again.");
            }else{
                storedVal=startPlay.nextInt();
             }
            startPlay.nextLine();
+       }
+       if (storedVal == 1){
+           newDeck.draw();
+           newPlayer.calcHand();
+       }else{
+           newPlayer.calcHand();
        }
    }
    public void main (String[] args){

@@ -8,7 +8,7 @@ public class Player
     //showing the player the rank and suit of their hand
     public void showHand(){
         for (Card testCard:playerCards){
-            System.out.print (" "+testCard.rankToString() +" "+"of"+" "+testCard.suitToString());
+            System.out.println(" "+testCard.rankToString()+testCard.rank +" "+"of"+" "+testCard.suitToString());
         }
     }
     //adding card c to the player's hand
