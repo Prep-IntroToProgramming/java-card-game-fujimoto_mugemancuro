@@ -24,13 +24,16 @@ public class Deck
         //accessing java utility shuffle function
         Collections.shuffle(cards);
     }
-    
+    //count Card method
     public void countCards(){
+        //stores the number of cards using the size method in an ArrayList
         int numCards = cards.size();
+        //prints that number to determine whether the deck is full
         System.out.print (numCards);
     }
-    
+    //discard method
     public void discard(){
+        //uses remove method to get rid of the top card
         cards.remove(0);
     }
 }
