@@ -5,13 +5,15 @@ public class Player
     private String name;
     //creating the player's cards using an ArrayList called playerCards
     ArrayList<Card>playerCards = new ArrayList<Card>();
-    //showing the player the rank and suit of their hand
+    
     public void showHand(String s){
+        //showing the dealer and player their hands
         if (s == "dealer") {
             System.out.println ("Dealer's hand is:");
         } else {
             System.out.println ("Player's hand is:");
         }
+        //printing out the rank and suit of each card
         for (Card testCard:playerCards){
             System.out.println(" "+ testCard.rankToString() + " " + "of" + " " + testCard.suitToString());
         }
