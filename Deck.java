@@ -7,7 +7,7 @@ public class Deck
     public Deck(){
         //assigning a suit to each card
         for (int i=1; i<=4; i++){
-            //assinging a rank to each card and adding the new cards into the ArrayList or deck
+            //assigning a rank to each card and adding the new cards into the ArrayList or deck
             for (int j=1; j<=13; j++){
                 cards.add(new Card(i,j));
             }
@@ -17,7 +17,7 @@ public class Deck
     public Card draw() {
         Card cardDrawn = cards.get(0);
         cards.remove(0);
-        System.out.print (cardDrawn.rank + cardDrawn.suit);
+        System.out.println(cardDrawn.rank + "is" + cardDrawn.suit);
         return cardDrawn;
     }
     //shuffle card method 
