@@ -37,6 +37,10 @@ public class Game
            newPlayer.calcHand();
        }
    }
+   public void playDealer(){
+   }
+   public void compareHands(){
+   }
    public void main (String[] args){
        Game newGame = new Game();
        newGame.setUpGame();
