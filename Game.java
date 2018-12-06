@@ -31,21 +31,28 @@ public class Game
                 storedVal=startPlay.nextInt();
             }
             startPlay.nextLine();
-        }
-        if (storedVal == 1){
+       }
+       if (storedVal == 1){
             newDeck.draw();
             int playerValue = newPlayer.calcHand();
-        }else{
+       }else{
             int playerValue = newPlayer.calcHand();
-        }
+       }
     }
 
     public void playDealer(){
-        int dealerVal = 0;
-
+        int dealerValue = 0;
+        dealerValue = dealer.calcHand();
+        if (dealerValue < 16){
+            newDeck.draw();
+            dealerValue = dealer.calcHand();
+        }
     }
 
     public void compareHands(){
+        if (dealerValue > playerValue){
+        }
+        
     }
 
     public void main (String[] args){

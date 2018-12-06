@@ -42,6 +42,9 @@ public class Player
         if (acePresent==true && handVal<=11){
                 handVal = handVal + 10;
         }
+        if (handVal > 21){
+            System.out.print("Bust."+ Player.name, "You lose.");
+        }
         return handVal;
     }
 }
