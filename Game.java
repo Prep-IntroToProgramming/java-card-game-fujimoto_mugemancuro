@@ -87,7 +87,7 @@ public class Game
         Game newGame = new Game();
         //setting up a new game
         newGame.setUpGame();
-        //
+        //Determining winning conditions for newGame.
         if(newGame.hasBlkJk(newGame.newPlayer)){
             System.out.print("You Win!");
             return;

@@ -17,6 +17,7 @@ public class Deck
     public Card draw() {
         Card cardDrawn = cards.get(0);
         cards.remove(0);
+        System.out.print (cardDrawn);
         return cardDrawn;
     }
     //shuffle card method 
