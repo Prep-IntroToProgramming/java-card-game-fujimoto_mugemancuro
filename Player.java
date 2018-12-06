@@ -43,7 +43,7 @@ public class Player
                 handVal = handVal + 10;
         }
         if (handVal > 21){
-            System.out.print("Bust."+ Player.name, "You lose.");
+            System.out.print("Bust.");
         }
         return handVal;
     }

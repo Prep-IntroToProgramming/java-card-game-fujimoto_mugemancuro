@@ -23,6 +23,7 @@ public class Game
         newPlayer.showHand();
         Scanner startPlay = new Scanner(System.in);
         int storedVal = 0;
+        int playerValue;
         while (storedVal != 1 && storedVal != 2){
             System.out.println("Would you like to hit? If yes, press 1. If no, press 2.");
             if (!startPlay.hasNextInt()){
@@ -34,24 +35,24 @@ public class Game
        }
        if (storedVal == 1){
             newDeck.draw();
-            int playerValue = newPlayer.calcHand();
+            playerValue = newPlayer.calcHand();
        }else{
-            int playerValue = newPlayer.calcHand();
+            playerValue = newPlayer.calcHand();
        }
     }
 
     public void playDealer(){
-        int dealerValue = 0;
+        int dealerValue;
         dealerValue = dealer.calcHand();
         if (dealerValue < 16){
             newDeck.draw();
             dealerValue = dealer.calcHand();
         }
     }
-
+    
     public void compareHands(){
-        if (dealerValue > playerValue){
-        }
+        //if (){
+        //}
         
     }
 
@@ -63,5 +64,9 @@ public class Game
             return;
         }
         //We need to add similar functionality for dealerHand.
+        if(newGame.hasBlkJk(newGame.dealer)){
+            System.out.print("You lose. The Dealer has won.");
+            return;
+        }
     }
 }
