@@ -8,7 +8,7 @@ public class Player
     //showing the player the rank and suit of their hand
     public void showHand(){
         for (Card testCard:playerCards){
-            System.out.println(" "+testCard.rankToString()+testCard.rank +" "+"of"+" "+testCard.suitToString());
+            System.out.println(" "+ testCard.rankToString() + " " + "of" + " " + testCard.suitToString());
         }
     }
     //adding card c to the player's hand
@@ -23,16 +23,16 @@ public class Player
         boolean acePresent = false;
         /* 
          * if player has an ace, ace takes on a value of 1. if rank of other card 
-         * is >= 10, the ace takes on a value of 11...
+         * is >= 10, the ace takes on a value of 11
          */
         for (Card card:playerCards){
             if (card.rank == 1){
                 acePresent = true;
                 handVal = handVal + 1;
             }else if (card.rank>=10){
-                    handVal = handVal + 10;
+                handVal = handVal + 10;
             }else{
-                    handVal = handVal + card.rank;
+                handVal = handVal + card.rank;
             }
         }
         /*
@@ -40,8 +40,9 @@ public class Player
          * ace will assume a value of 11
          */ 
         if (acePresent==true && handVal<=11){
-                handVal = handVal + 10;
+            handVal = handVal + 10;
         }
+        //if the player's hand value is greater than 21, program will tell them they busted
         if (handVal > 21){
             System.out.print("Bust.");
         }
