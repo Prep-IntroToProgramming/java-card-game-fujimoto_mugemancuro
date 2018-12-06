@@ -14,12 +14,10 @@ public class Deck
         }
     }
     //removing/drawing a card from the top of the deck
-    String cardName;
     public Card draw() {
         Card cardDrawn = cards.get(0);
-        cardName = cardDrawn.rankToString()+"of"+cardDrawn.suitToString();
         cards.remove(0);
-        System.out.println(cardName);
+        //System.out.println(cardDrawn.rank + "is" + cardDrawn.suit);
         return cardDrawn;
     }
     //shuffle card method 
@@ -36,8 +34,7 @@ public class Deck
     }
     //discard method
     public void discard(){
-        //uses remove method to get rid of the top card. 
-        //In some cases this method is overzealous and removes 2 cards (See the DeckTest run).
+        //uses remove method to get rid of the top card
         cards.remove(0);
     }
 }

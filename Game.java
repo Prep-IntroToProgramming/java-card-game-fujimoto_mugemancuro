@@ -11,7 +11,7 @@ public class Game
         newDeck.shuffle();
         newPlayer.addCard(newDeck.draw());
         newPlayer.addCard(newDeck.draw());
-        System.out.println ("after newplayer cards");
+        //System.out.println ("after newplayer cards");
         dealer.addCard(newDeck.draw());
         dealer.addCard(newDeck.draw());
     }
@@ -19,13 +19,14 @@ public class Game
     //calculating the player's hand value to see if they have blackjack (21)
     public boolean hasBlkJk(Player p){
         if (p.calcHand()==21){
-            System.out.print ("You Win!");
+            System.out.print ("You got Blackjack!");
+            return true;
         }
-        return true;
+        return false;
     }
 
     //player's turn begins
-    public void playTurn(){
+    public int playTurn(){
         //showing the player their cards
         newPlayer.showHand("player");
         Scanner startPlay = new Scanner(System.in);
@@ -44,12 +45,16 @@ public class Game
                     System.out.println("That is not a valid value. Try again.");
                 }else{
                     storedVal=startPlay.nextInt();
+                    if (storedVal != 1 && storedVal != 2) {
+                        System.out.println ("That is not a valid value. Try again.");
+                    }
                 }
+
                 startPlay.nextLine();
             }
 
             //if user inputs a 1, they will hit (gain another card). otherwise the player will stay
-            
+
             if (storedVal == 1){
                 c = newDeck.draw();
                 newPlayer.addCard(c);
@@ -61,25 +66,31 @@ public class Game
             }
             if (playerValue > 21) {
                 System.out.println ("You busted.");
-                return;
+                return 0;
             }
         }
+        return 1;
     }
 
     //dealer's turn after the player's turn is up
-    public void playDealer(){
+    public int playDealer(){
         //declaring dealerValue variable
         int dealerValue;
+        Card c;
         //assigning dealerValue variable to the value of the dealer's hand
         dealerValue = dealer.calcHand();
         //if the dealer's hand value is less than or equal to 16, the dealer will hit once
         while (dealerValue <= 16){
-            newDeck.draw();
+            c = newDeck.draw();
+            dealer.addCard(c);
             dealerValue = dealer.calcHand();
         }
         dealer.showHand("dealer");
         if (dealerValue > 21) {
             System.out.println ("Dealer busted. You win!");
+            return 0;
+        } else {
+            return 1;
         }
     }
 
@@ -98,23 +109,29 @@ public class Game
 
     //setting up a new game
     public void main (String[]args){
+        int playerHandOk = 1;
+        int dealerHandOk = 1;
         //declaring & initializing newGame variable
         Game newGame = new Game();
         //setting up a new game
         newGame.setUpGame();
-        System.out.println ("after setupgame");
-        newGame.playTurn();
-        newGame.playDealer();
-        newGame.compareHands();
-        //
+        //System.out.println ("after setupgame");
+        playerHandOk = newGame.playTurn();
         if(newGame.hasBlkJk(newGame.newPlayer)){
             System.out.print("You Win!");
             return;
         }
-        //We need to add similar functionality for dealerHand.
-        if(newGame.hasBlkJk(newGame.dealer)){
-            System.out.print("You lose. The Dealer has won.");
-            return;
+        if (playerHandOk == 1) {
+            dealerHandOk = newGame.playDealer();
+            if(newGame.hasBlkJk(newGame.dealer)){
+                System.out.print("You lose. The Dealer has won.");
+                return;
+            }
         }
+
+        if (playerHandOk == 1 && dealerHandOk == 1) {
+            newGame.compareHands();
+        }
+
     }
 }
