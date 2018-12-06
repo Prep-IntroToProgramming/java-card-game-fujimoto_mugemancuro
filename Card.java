@@ -75,12 +75,12 @@ public class Card {
         if (startRank<1 && startRank>13){
             throw new RuntimeException();
         }else{
-            suit = startRank;
+            rank = startRank;
         }
         if (startSuit<1 && startSuit>4){
             throw new RuntimeException();
         }else{
-            rank = startSuit;
+            suit = startSuit;
         }
     }
 

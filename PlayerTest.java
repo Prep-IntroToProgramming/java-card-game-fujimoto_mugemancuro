@@ -5,7 +5,7 @@ public class PlayerTest
         Player Bob = new Player();
         Bob.addCard(new Card(1,4));
         Bob.addCard(new Card(3,2));
-        Bob.showHand();
+        Bob.showHand("player");
         Bob.calcHand();
     }
 }

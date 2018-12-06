@@ -11,6 +11,7 @@ public class Game
         newDeck.shuffle();
         newPlayer.addCard(newDeck.draw());
         newPlayer.addCard(newDeck.draw());
+        System.out.println ("after newplayer cards");
         dealer.addCard(newDeck.draw());
         dealer.addCard(newDeck.draw());
     }
@@ -26,35 +27,45 @@ public class Game
     //player's turn begins
     public void playTurn(){
         //showing the player their cards
-        newPlayer.showHand();
+        newPlayer.showHand("player");
         Scanner startPlay = new Scanner(System.in);
         //declaring & initializing storedVal variable. declaring playerValue variable
         int storedVal = 0;
         int playerValue;
-
+        Card c;
         /*
          * if user input is not a 1 or a 2, program will tell the player it's invalid input 
          * & ask, again, if they'd like to hit 
-        */
-        while (storedVal != 1 && storedVal != 2){
-            System.out.println("Would you like to hit? If yes, press 1. If no, press 2.");
-            if (!startPlay.hasNextInt()){
-                System.out.println("That is not a valid value. Try again.");
-            }else{
-                storedVal=startPlay.nextInt();
+         */
+        while (storedVal != 2) {
+            while (storedVal != 1 && storedVal != 2){
+                System.out.println("Would you like to hit? If yes, press 1. If no, press 2.");
+                if (!startPlay.hasNextInt()){
+                    System.out.println("That is not a valid value. Try again.");
+                }else{
+                    storedVal=startPlay.nextInt();
+                }
+                startPlay.nextLine();
             }
-            startPlay.nextLine();
-        }
-        //if user inputs a 1, they will hit (gain another card). otherwise the player will stay
-        if (storedVal == 1){
-            newDeck.draw();
-            playerValue = newPlayer.calcHand();
-            //newPlayer.showHand();
-        }else{
-            playerValue = newPlayer.calcHand();
+
+            //if user inputs a 1, they will hit (gain another card). otherwise the player will stay
+            
+            if (storedVal == 1){
+                c = newDeck.draw();
+                newPlayer.addCard(c);
+                playerValue = newPlayer.calcHand();
+                newPlayer.showHand("player");
+                storedVal = 0;
+            }else{
+                playerValue = newPlayer.calcHand();
+            }
+            if (playerValue > 21) {
+                System.out.println ("You busted.");
+                return;
+            }
         }
     }
-    
+
     //dealer's turn after the player's turn is up
     public void playDealer(){
         //declaring dealerValue variable
@@ -62,9 +73,13 @@ public class Game
         //assigning dealerValue variable to the value of the dealer's hand
         dealerValue = dealer.calcHand();
         //if the dealer's hand value is less than or equal to 16, the dealer will hit once
-        if (dealerValue <= 16){
+        while (dealerValue <= 16){
             newDeck.draw();
             dealerValue = dealer.calcHand();
+        }
+        dealer.showHand("dealer");
+        if (dealerValue > 21) {
+            System.out.println ("Dealer busted. You win!");
         }
     }
 
@@ -80,14 +95,18 @@ public class Game
             System.out.println("You won!");        
         }
     }
-    
+
     //setting up a new game
-    public void main (String[] args){
+    public void main (String[]args){
         //declaring & initializing newGame variable
         Game newGame = new Game();
         //setting up a new game
         newGame.setUpGame();
-        //Determining winning conditions for newGame.
+        System.out.println ("after setupgame");
+        newGame.playTurn();
+        newGame.playDealer();
+        newGame.compareHands();
+        //
         if(newGame.hasBlkJk(newGame.newPlayer)){
             System.out.print("You Win!");
             return;

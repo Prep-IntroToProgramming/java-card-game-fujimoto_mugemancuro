@@ -6,7 +6,12 @@ public class Player
     //creating the player's cards using an ArrayList called playerCards
     ArrayList<Card>playerCards = new ArrayList<Card>();
     //showing the player the rank and suit of their hand
-    public void showHand(){
+    public void showHand(String s){
+        if (s == "dealer") {
+            System.out.println ("Dealer's hand is:");
+        } else {
+            System.out.println ("Player's hand is:");
+        }
         for (Card testCard:playerCards){
             System.out.println(" "+ testCard.rankToString() + " " + "of" + " " + testCard.suitToString());
         }
@@ -43,9 +48,11 @@ public class Player
             handVal = handVal + 10;
         }
         //if the player's hand value is greater than 21, program will tell them they busted
+        /*
         if (handVal > 21){
             System.out.print("Bust.");
         }
+        */
         return handVal;
     }
 }
