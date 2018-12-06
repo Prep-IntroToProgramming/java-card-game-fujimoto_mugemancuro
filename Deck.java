@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class Deck
@@ -25,5 +24,13 @@ public class Deck
         //accessing java utility shuffle function
         Collections.shuffle(cards);
     }
-
+    
+    public void countCards(){
+        int numCards = cards.size();
+        System.out.print (numCards);
+    }
+    
+    public void discard(){
+        cards.remove(0);
+    }
 }
