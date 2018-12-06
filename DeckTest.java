@@ -9,7 +9,9 @@ public class DeckTest
       testDeck.draw();
       //shuffle.
       testDeck.shuffle();
-      //this second draw method declaration obliquely tests if draw works (by drawing another different card)
-      testDeck.draw();
+      //discard.
+      testDeck.discard();
+      //checks to see if one card has been discarded.
+      testDeck.countCards();
    }
 }

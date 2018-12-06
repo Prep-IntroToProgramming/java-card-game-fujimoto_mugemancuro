@@ -36,7 +36,8 @@ public class Deck
     }
     //discard method
     public void discard(){
-        //uses remove method to get rid of the top card
+        //uses remove method to get rid of the top card. 
+        //In some cases this method is overzealous and removes 2 cards (See the DeckTest run).
         cards.remove(0);
     }
 }
