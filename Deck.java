@@ -14,10 +14,12 @@ public class Deck
         }
     }
     //removing/drawing a card from the top of the deck
+    String cardName;
     public Card draw() {
         Card cardDrawn = cards.get(0);
+        cardName = cardDrawn.rankToString()+"of"+cardDrawn.suitToString();
         cards.remove(0);
-        System.out.println(cardDrawn.rank + "is" + cardDrawn.suit);
+        System.out.println(cardName);
         return cardDrawn;
     }
     //shuffle card method 
